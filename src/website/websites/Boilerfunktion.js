@@ -1,5 +1,15 @@
-const customerData = [
+document.addEventListener("DOMContentLoaded", function() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            displayCustomerData(JSON.parse(this.responseText));
+        }
+    };
+    xhttp.open("GET", "Customers.json", true);
+    xhttp.send();
+});
 
+<<<<<<< HEAD
     {
         "firstname": "John",
         "lastname": "Doe",
@@ -47,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function() {
     xhttp.send();
 });
  
+
 function displayCustomerData(data) {
     var htmlContent = "<table border='1'><tr><th>Vorname</th><th>Nachname</th><th>Kunden-ID</th><th>Erstregistrierung</th></tr>";
     data.customers.forEach(function(customer) {
