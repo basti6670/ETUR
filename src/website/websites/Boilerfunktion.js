@@ -21,3 +21,8 @@ function displayCustomerData(data) {
     htmlContent += "</table>";
     document.getElementById("customer-data").innerHTML = htmlContent;
 }
+export async function routes (fastify, options) {
+    fastify.get('/', async (request, reply) => {
+      // do something ´
+    });
+  }
