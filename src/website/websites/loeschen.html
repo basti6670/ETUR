@@ -14,9 +14,9 @@
     <div class="container">
         <h2>Vor- und Nachnamen eingeben</h2>
         <form id="nameForm">
-            <input type="text" id="firstName" placeholder="Vorname" required><br>
-            <input type="text" id="lastName" placeholder="Nachname" required><br>
-            <button type="submit">Absenden</button>
+            <input type="text" id="firstName" placeholder="First Name" required><br>
+            <input type="text" id="lastName" placeholder="Last Name" required><br>
+            <button type="submit">Submit</button>
         </form>
     </div>
 </body>
@@ -72,12 +72,12 @@ function deleteFromXML(firstName, lastName) {
 
             elementsToDelete.forEach(function(element) {
                 element.parentNode.removeChild(element);
-                console.log('Element gelöscht:', element);
+                console.log('Deleted Client:', element);
             });
 
         })
         .catch(error => {
-            console.error('Fehler beim Laden der XML-Datei:', error);
+            console.error('Error:', error);
         });
 }
 </script>
