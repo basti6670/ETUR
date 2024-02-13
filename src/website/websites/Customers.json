@@ -1,0 +1,95 @@
+{
+    "customers": [
+      {
+        "firstname": "John",
+        "lastname": "Doe",
+        "customer-id": "123456",
+        "registration-date": "2023-01-15"
+      },
+      {
+        "firstname": "Alice",
+        "lastname": "Smith",
+        "customer-id": "789012",
+        "registration-date": "2022-11-30"
+      },
+      {
+        "firstname": "Michael",
+        "lastname": "Johnson",
+        "customer-id": "345678",
+        "registration-date": "2023-05-20"
+      },
+      {
+        "firstname": "Sarah",
+        "lastname": "Wilson",
+        "customer-id": "901234",
+        "registration-date": "2023-03-10"
+      },
+      {
+        "firstname": "David",
+        "lastname": "Anderson",
+        "customer-id": "567890",
+        "registration-date": "2022-09-25"
+      },
+      {
+        "firstname": "Emily",
+        "lastname": "Brown",
+        "customer-id": "234567",
+        "registration-date": "2023-08-12"
+      },
+      {
+        "firstname": "James",
+        "lastname": "Lee",
+        "customer-id": "890123",
+        "registration-date": "2022-12-05"
+      },
+      {
+        "firstname": "Lisa",
+        "lastname": "Nguyen",
+        "customer-id": "456789",
+        "registration-date": "2023-04-17"
+      },
+      {
+        "firstname": "William",
+        "lastname": "Robinson",
+        "customer-id": "012345",
+        "registration-date": "2023-02-28"
+      },
+      {
+        "firstname": "Mary",
+        "lastname": "Miller",
+        "customer-id": "678901",
+        "registration-date": "2022-10-15"
+      },
+      {
+        "firstname": "Christopher",
+        "lastname": "Garcia",
+        "customer-id": "345678",
+        "registration-date": "2023-06-08"
+      },
+      {
+        "firstname": "Jennifer",
+        "lastname": "Chen",
+        "customer-id": "901234",
+        "registration-date": "2023-01-22"
+      },
+      {
+        "firstname": "Daniel",
+        "lastname": "Wang",
+        "customer-id": "567890",
+        "registration-date": "2022-11-07"
+      },
+      {
+        "firstname": "Jessica",
+        "lastname": "Kim",
+        "customer-id": "234567",
+        "registration-date": "2023-07-14"
+      },
+      {
+        "firstname": "Matthew",
+        "lastname": "Ng",
+        "customer-id": "890123",
+        "registration-date": "2022-12-30"
+      }
+    ]
+  }
+  
