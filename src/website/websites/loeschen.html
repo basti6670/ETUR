@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function deleteFromXML(firstName, lastName) {
-    fetch('Customers.xml')
+    fetch('Customers.json')
         .then(response => response.text())
         .then(xmlString => {
             const parser = new DOMParser();
