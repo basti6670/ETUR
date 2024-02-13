@@ -1,4 +1,3 @@
-// Beispielobjekt für einen Customer
 const customerTemplate = {
     id: '',
     firstName: '',
@@ -36,5 +35,23 @@ function deleteCustomer(id) {
     return null; // Falls kein Customer mit der angegebenen ID gefunden wurde
 }
 
+// Funktion zur Validierung einer Kundennummer
+function validateCustomerNumber(customerNumber) {
+    const pattern = /^ETUR-CN-\d+$/; // Regex-Muster: ETUR-CN- gefolgt von einer beliebigen Anzahl von Zahlen
+    const isValidFormat = pattern.test(customerNumber);
+    if (!isValidFormat) {
+        return false; // Kundennummer entspricht nicht dem erwarteten Format
+    }
+    
+    const isExisting = customers.some(customer => customer.id === customerNumber);
+    return isExisting;
+}
+
 // Export der Funktionen
-export { getAllCustomers, createCustomer, readCustomer, deleteCustomer };
+export { getAllCustomers, createCustomer, readCustomer, deleteCustomer, validateCustomerNumber };
+
+export async function routes (fastify, options) {
+    fastify.get('/', async (request, reply) => {
+      // do something ´
+    });
+  }

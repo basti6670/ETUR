@@ -30,5 +30,13 @@ const customer2 = createCustomer('2', 'Jane', 'Smith', 'jane.smith@example.com',
 const randomIndex = Math.floor(Math.random() * customers.length);
 const deletedCustomer = deleteCustomer(customers[randomIndex].id);
 
-// Gebt die verbleibenden Kunden aus
-console.log(getAllCustomers());
+// Überprüft die Gültigkeit von Kundennummern
+console.log('Is ETUR-CN-123 valid?', validateCustomerNumber('ETUR-CN-123')); // true
+console.log('Is ETUR-CN-789 valid?', validateCustomerNumber('ETUR-CN-789')); // false (nicht im System vorhanden)
+console.log('Is ET-CN-2334a valid?', validateCustomerNumber('ET-CN-2334a')); // false (falsches Format)
+
+export async function routes (fastify, options) {
+    fastify.get('/', async (request, reply) => {
+      // do something ´
+    });
+  }
