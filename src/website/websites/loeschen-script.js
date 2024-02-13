@@ -11,12 +11,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
+const btn = document.getElementById("submit");
+btn.addEventListener("click", () => {
+    console.log("test")
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    deleteCustomer(firstName, lastName);
+})
+
 function deleteCustomer(firstName, lastName) {
     fetch('Customers.json')
         .then(response => response.json())
         .then(data => {
             const customers = data.customers;
-
+            console.log(firstName, lastName)
             const index = customers.findIndex(customers => customers.firstname === firstName && customers.lastname === lastName);
 
             if (index !== -1) {
