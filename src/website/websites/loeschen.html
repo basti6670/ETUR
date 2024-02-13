@@ -8,11 +8,11 @@
 <body>
     <div class="löschen-container"> 
         <form action="Boilerplate.html">
-            <button>Zurück zum Anlegen</button>
+            <button>Back to Overview</button>
         </form>
     </div>
     <div class="container">
-        <h2>Vor- und Nachnamen eingeben</h2>
+        <h2>Enter First- and Last-Name</h2>
         <form id="nameForm">
             <input type="text" id="firstName" placeholder="First Name" required><br>
             <input type="text" id="lastName" placeholder="Last Name" required><br>
@@ -47,42 +47,4 @@
             cursor: pointer;
         }
 </style>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const nameForm = document.getElementById('nameForm');
-
-    nameForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        const firstName = document.getElementById('firstName').value;
-        const lastName = document.getElementById('lastName').value;
-
-        deleteFromJSON(firstName, lastName);
-    });
-});
-
-function deleteFromJSON(firstName, lastName) {
-    fetch('Customers.json')
-        .then(response => response.json())
-        .then(data => {
-            const customers = data.customers;
-
-            const filteredCustomers = customers.filter(customer => customer.firstname === firstName && customer.lastname === lastName);
-
-            if (filteredCustomers.length > 0) {
-                filteredCustomers.forEach(customer => {
-                    const index = customers.indexOf(customer);
-                    customers.splice(index, 1);
-                    console.log('Customer deleted:', customer);
-                });
-
-            } else {
-                console.log('No customer found with the specified first and last names.');
-            }
-        })
-        .catch(error => {
-            console.error('Error loading JSON file:', error);
-        });
-}
-</script>
 </html>
