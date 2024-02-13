@@ -48,7 +48,7 @@
         }
 </style>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     const nameForm = document.getElementById('nameForm');
 
     nameForm.addEventListener('submit', function(event) {
@@ -62,13 +62,23 @@
 });
 
 function deleteFromXML(firstName, lastName) {
-    const elementsToDelete = xmlDoc.querySelectorAll('Person[firstName="' + firstName + '"][lastName="' + lastName + '"]');
-    
-    elementsToDelete.forEach(function(element) {
-        element.parentNode.removeChild(element);
-        console.log('Element gelöscht:', element);
-    });
+    fetch('Customers.xml')
+        .then(response => response.text())
+        .then(xmlString => {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
 
+            const elementsToDelete = xmlDoc.querySelectorAll('Person[firstName="' + firstName + '"][lastName="' + lastName + '"]');
+
+            elementsToDelete.forEach(function(element) {
+                element.parentNode.removeChild(element);
+                console.log('Element gelöscht:', element);
+            });
+
+        })
+        .catch(error => {
+            console.error('Fehler beim Laden der XML-Datei:', error);
+        });
 }
 </script>
 </html>
