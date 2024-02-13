@@ -57,27 +57,31 @@ document.addEventListener('DOMContentLoaded', function() {
         const firstName = document.getElementById('firstName').value;
         const lastName = document.getElementById('lastName').value;
 
-        deleteFromXML(firstName, lastName);
+        deleteFromJSON(firstName, lastName);
     });
 });
 
-function deleteFromXML(firstName, lastName) {
+function deleteFromJSON(firstName, lastName) {
     fetch('Customers.json')
-        .then(response => response.text())
-        .then(xmlString => {
-            const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
+        .then(response => response.json())
+        .then(data => {
+            const customers = data.customers;
 
-            const elementsToDelete = xmlDoc.querySelectorAll('Person[firstName="' + firstName + '"][lastName="' + lastName + '"]');
+            const filteredCustomers = customers.filter(customer => customer.firstname === firstName && customer.lastname === lastName);
 
-            elementsToDelete.forEach(function(element) {
-                element.parentNode.removeChild(element);
-                console.log('Deleted Client:', element);
-            });
+            if (filteredCustomers.length > 0) {
+                filteredCustomers.forEach(customer => {
+                    const index = customers.indexOf(customer);
+                    customers.splice(index, 1);
+                    console.log('Customer deleted:', customer);
+                });
 
+            } else {
+                console.log('No customer found with the specified first and last names.');
+            }
         })
         .catch(error => {
-            console.error('Error:', error);
+            console.error('Error loading JSON file:', error);
         });
 }
 </script>
