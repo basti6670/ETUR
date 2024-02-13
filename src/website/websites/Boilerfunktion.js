@@ -1,14 +1,6 @@
-document.addEventListener("DOMContentLoaded", function() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            displayCustomerData(JSON.parse(this.responseText));
-        }
-    };
-    xhttp.open("GET", "Customers.json", true);
-    xhttp.send();
-});
+const customerData = [
 
+<<<<<<< HEAD
 function displayCustomerData(data) {
     var htmlContent = "<table border='1'><tr><th>Vorname</th><th>Nachname</th><th>Kunden-ID</th><th>Erstregistrierung</th></tr>";
     data.customers.forEach(function(customer) {
@@ -26,3 +18,40 @@ export async function routes (fastify, options) {
       // do something ´
     });
   }
+=======
+    {
+        "firstname": "John",
+        "lastname": "Doe",
+        "customerid": "123456",
+        "registration-date": "2023-01-15"
+    },
+    {
+        "firstname": "Alice",
+        "lastname": "Smith",
+        "customerid": "789012",
+        "registration-date": "2022-11-30"
+    },
+    {
+        "firstname": "Michael",
+        "lastname": "Johnson",
+        "customerid": "345678",
+        "registration-date": "2023-05-20"
+    },
+    {
+        "firstname": "Sarah",
+        "lastname": "Wilson",
+        "customerid": "901234",
+        "registration-date": "2023-03-10"
+    }
+];
+
+export function showCustomer(customerid, firstname, lastname)
+{
+    console.log(customerData)
+}
+
+export function createCusomer(customerId,firstname, lastname ){
+    let newCustomer = {customerid, firstname, lastname};
+    customerData.push(newCustomer);
+}
+>>>>>>> feddb3d6542fb482869aa8aea88e1512012cd2e8
