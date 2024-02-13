@@ -55,3 +55,55 @@ export async function routes (fastify, options) {
       // do something ´
     });
   }
+
+// server.js
+
+const express = require('express');
+const app = express();
+const PORT = 3000; // Port, auf dem der Server laufen soll
+
+// Middleware für JSON-Parser
+app.use(express.json());
+
+// Importieren der Kunden-Funktionen aus customers.js
+const { getAllCustomers, createCustomer, readCustomer, deleteCustomer, validateCustomerNumber } = require('./customers.js');
+
+// Route: GET /customers - Gibt alle Kunden zurück
+app.get('/customers', (req, res) => {
+    const customers = getAllCustomers();
+    res.json(customers);
+});
+
+// Route: GET /customers/:id - Gibt einen Kunden anhand einer ID zurück
+app.get('/customers/:id', (req, res) => {
+    const { id } = req.params;
+    const customer = readCustomer(id);
+    if (customer) {
+        res.json(customer);
+    } else {
+        res.status(404).send('Customer not found');
+    }
+});
+
+// Route: POST /customers - Erstellt einen neuen Kunden
+app.post('/customers', (req, res) => {
+    const { id, firstName, lastName, email, phoneNumber } = req.body;
+    const newCustomer = createCustomer(id, firstName, lastName, email, phoneNumber);
+    res.status(201).json(newCustomer);
+});
+
+// Route: DELETE /customers/:id - Löscht einen Kunden anhand einer ID
+app.delete('/customers/:id', (req, res) => {
+    const { id } = req.params;
+    const deletedCustomer = deleteCustomer(id);
+    if (deletedCustomer) {
+        res.json(deletedCustomer);
+    } else {
+        res.status(404).send('Customer not found');
+    }
+});
+
+// Starten des Servers
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
