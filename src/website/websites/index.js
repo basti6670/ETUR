@@ -40,3 +40,54 @@ export async function routes (fastify, options) {
       // do something ´
     });
   }
+
+  const fastify = require('./customer.js');
+const { getAllCustomers, createCustomer, readCustomer, deleteCustomer } = require('./customers.js');
+
+// Route: GET /customers - Gibt alle Kunden zurück
+fastify.get('/customers', { schema: getCustomersResponseSchema }, async (request, reply) => {
+    const customers = getAllCustomers();
+    return customers;
+});
+
+// Route: GET /customers/:id - Gibt einen Kunden anhand einer ID zurück
+fastify.get('/customers/:id', async (request, reply) => {
+    const { id } = request.params;
+    const customer = readCustomer(id);
+    if (customer) {
+        return customer;
+    } else {
+        reply.code(404).send('Customer not found');
+    }
+});
+
+// Route: POST /customers - Erstellt einen neuen Kunden
+fastify.post('/customers', { schema: { body: customerSchema } }, async (request, reply) => {
+    const { name, description, id } = request.body;
+    const newCustomer = createCustomer(name, description, id);
+    return newCustomer;
+});
+
+// Route: DELETE /customers/:id - Löscht einen Kunden anhand einer ID
+fastify.delete('/customers/:id', async (request, reply) => {
+    const { id } = request.params;
+    const deletedCustomer = deleteCustomer(id);
+    if (deletedCustomer) {
+        return deletedCustomer;
+    } else {
+        reply.code(404).send('Customer not found');
+    }
+});
+
+// Starten des Servers
+const start = async () => {
+    try {
+        await fastify.listen(3000);
+        fastify.log.info(`Server is running on port ${fastify.server.address().port}`);
+    } catch (err) {
+        fastify.log.error(err);
+        process.exit(1);
+    }
+};
+
+start();

@@ -107,3 +107,38 @@ app.delete('/customers/:id', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+const fastify = require('fastify')();
+
+// Schema für Kundenobjekte
+const customerSchema = {
+  type: 'object',
+  properties: {
+    name: { type: 'string' },
+    description: { type: 'string', minLength: 1 },
+    id: { type: 'string' },
+  },
+  required: ['name', 'description', 'id']
+};
+
+// Schema für Antwort auf GET /customers
+const getCustomersResponseSchema = {
+  200: {
+    type: 'array',
+    items: {
+      type: 'object',
+      properties: {
+        name: { type: 'string' },
+        description: { type: 'string' },
+        id: { type: 'string' },
+      }
+    }
+  }
+};
+
+// Registrieren der Schemata in Fastify
+fastify.addSchema(customerSchema);
+fastify.addSchema(getCustomersResponseSchema);
+
+// Export von Fastify-Instanz
+module.exports = fastify;
