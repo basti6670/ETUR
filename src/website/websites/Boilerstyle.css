@@ -32,6 +32,7 @@ body {
 
     padding:
         10px;
+        color: #333;
 }
 
 #left-container {
@@ -54,8 +55,9 @@ button {
 }
 
 .container-neuer-Kunde {
-
+    padding-top: 5%;
     text-align: center;
+    text-decoration: underline;
 }
 
 .container-neuer-Kunde-links {
