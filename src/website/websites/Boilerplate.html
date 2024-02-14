@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Boilerstyle.css">
-    
+
     <div class="headline-container">
         <h1 class="headline">
             Mords die Kunden<br />
         </h1>
     </div>
 </head>
+
 <body>
     <div class="container-wrapper">
-        <div class="container" id="left-container"> 
+        <div class="container" id="left-container">
             <form action="NeuerKunde.html">
-                <button>Neue Kundennummer anlegen</button>  
-             </form>
+                <button>Neue Kundennummer anlegen</button>
+            </form>
             <form action="Pruefen.html">
-                <button>Bestehende Nummern überprüfen</button> 
+                <button>Bestehende Nummern überprüfen</button>
             </form>
             <form action="loeschen.html">
                 <button>Kunde Löschen</button>
@@ -30,4 +32,52 @@
         </div>
     </div>
 </body>
+<script>
+    const Report = require('./report.js');
+
+    // Ein neues Report-Objekt erstellen
+    const myReport = new Report(
+        '2412',
+        'Feedback',
+        '1234',
+        'This is a description',
+        ['label1', 'label2'],
+        'Product Manager',
+        'Jens Reiner',
+        '2020-01-01:12:00:00',
+        '2020-01-01:12:00:00',
+        '2020-01-01:12:00:00',
+        'Open',
+        1,
+        [
+            {
+                author: 'Jens Reiner',
+                message: 'This is a comment',
+                createdAt: '2020-01-01:12:00:00',
+                type: 'developer'
+            }
+        ],
+        'This is a close reason',
+        [
+            {
+                type: 'github',
+                url: '',
+                issueNumber: 1
+            }
+        ]
+    );
+
+    // Beispiel für die Verwendung von Methoden
+    myReport.setDescription('Updated description');
+    myReport.addComment({
+        author: 'Another Author',
+        message: 'Another comment',
+        createdAt: '2020-01-01:12:00:00',
+        type: 'product manager'
+    });
+
+    console.log(myReport.getDescription());
+    console.log(myReport.getComments());
+</script>
+
 </html>
