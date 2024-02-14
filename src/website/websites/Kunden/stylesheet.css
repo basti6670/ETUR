@@ -8,31 +8,41 @@
     color: aliceblue;
 }
 .login{
-    display: flex;
     justify-content: center;
+    background-color: dimgray;
+
 }
 .login{
-    background-color: dimgray;
+    /*background-color: dimgray; */
     justify-content: center;
+    display: flex;
 }
 .bodycontainer{
-    padding-top: 10px;
+
+    justify-content: center;
 }
 .logincontainer{
-    padding-left: 40px;
-    padding-right:40px;
+    justify-content: center;
+    display: flex;
+    background-color: dimgray;
 }
 .left-container{
-    width: 45%;
+    width: 50%;
+    text-align: right;
     float: left;
-    background-color: dimgray;
 }
 .right-container{
-    width: 45%;
-    background-color: dimgray;
+    text-align: left;
+    width: 50%;
     float: right;
 }
 .credentials{
     justify-content: space-evenly;
-    padding-top: 40px;
+
+}
+body{
+    background-color: lightgray;
+}
+header{
+    padding-bottom: 10px;
 }
