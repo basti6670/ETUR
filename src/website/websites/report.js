@@ -1,3 +1,5 @@
+const { Time } = require("e");
+
 class Report {
     constructor(id, category, customerId, description, labels, owner, assignedTo, createdAt, editedAt, closedAt, state, priority, comments, closeReason, references) {
         this.id = id;
@@ -22,7 +24,29 @@ class Report {
         this.description = description;
     }
 
-    // Weitere Methoden zum Setzen und Abrufen von Eigenschaften ...
-}
+    newReport() { //Kunde
+        this.id = id + 1;
+        //this.customerId = Lookup auf Kundentabelle
+        //this.owner = Absender des Reports?
+        //this.assignedTo = Defaule Jens Reiner
+        this.createdAt = new Time();
+        this.state = 'unbearbeitet'
+    }
+    showMyReports() { //Kunde
 
-markAsFinished()
+    }
+    showReportComment() { //Kunde
+        return this.comments, this.closeReason
+    }
+    archiveReport() { //Kunde
+
+    }
+
+    markAsFinished() { //Dev
+        if (this.state != 'finished');
+        this.state = 'finished';
+        this.closedAt = new Date();
+        //this.closeReason = Eingabe des Bearbeiters / Default = finished
+        this.archiveReport();
+    }
+}
