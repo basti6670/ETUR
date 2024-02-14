@@ -28,12 +28,12 @@ class Report {
         this.id = id + 1;
         //this.customerId = Lookup auf Kundentabelle
         //this.owner = Absender des Reports?
-        //this.assignedTo = Defaule Jens Reiner
+        //this.assignedTo = Default Jens Reiner
         this.createdAt = new Time();
         this.state = 'unbearbeitet'
     }
     showMyReports() { //Kunde
-
+        //Reports aus Array ziehen
     }
     showReportComment() { //Kunde
         return this.comments, this.closeReason
@@ -42,11 +42,13 @@ class Report {
 
     }
 
+    
+    /*
     markAsFinished() { //Dev
         if (this.state != 'finished');
         this.state = 'finished';
         this.closedAt = new Date();
         //this.closeReason = Eingabe des Bearbeiters / Default = finished
         this.archiveReport();
-    }
+    } */
 }
