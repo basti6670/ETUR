@@ -82,7 +82,7 @@ app.post('/NeuerKunde.html', (req, res) => {
     const newData = req.body;
     
     // Speichern der Daten in einer Datei
-    fs.writeFile('data.json', JSON.stringify(newData), (err) => {
+    fs.writeFile('package.json', JSON.stringify(newData), (err) => {
         if (err) {
             console.error('Fehler beim Speichern der Daten:', err);
             res.status(500).send('Interner Serverfehler');
