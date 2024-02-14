@@ -23,8 +23,14 @@
     padding-right:40px;
 }
 .left-container{
+    width: 45%;
     float: left;
     background-color: dimgray;
+}
+.right-container{
+    width: 45%;
+    background-color: dimgray;
+    float: right;
 }
 .credentials{
     justify-content: space-evenly;
