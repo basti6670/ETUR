@@ -6,29 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Boilerstyle.css">
     <title>Document</title>
+    <script src="customers.js"></script>
 </head>
 
 <body>
+
     <div class="container-neuer-Kunde">
         <h1>Neuen Kunden anlegen</h1>
     </div>
     <div class="container-neuer-Kunde-links">
-        <t>Vorname:  <input type="text" id="inputVorname"><br /> </t>
-        <t>Nachname: <input type="text" id="inputnachname"><br /></t>
-        <t>E-Mail: <input type="text" id="inputeMail" required="@"><br /></t>
+        <t>Vorname: <input type="text" id="inputVorname"><br /> </t>
+        <t>Nachname: <input type="text" id="inputNachname"><br /></t>
+        <t>E-Mail: <input type="text" id="inputMail" required><br /></t>
         <t>Datum: <input type="date" id="inputDatum"></t>
-    </div>
-    <div class="container-neuer-Kunde-rechts">
 
-    </div>
+        <button id="saveButton" onclick="saveUser()">Speichern</button>
+        <button id="displayButton" onclick="displayUser()">Anzeigen</button>
+        <div id="userDisplay"></div>
+
+        
+
+</html>
+</div>
 </body>
+
 <footer>
     <div class="selection">
-        <button onselect="createCustomer()">Daten speichern</button>
         <form action="Boilerplate.html">
-            <button >Abbrechen</button>
+            <button>Abbrechen</button>
         </form>
-        <script src="saveData.js"></script>
+    
     </div>
 </footer>
-</html>
+
+<script>
+    const user = saveUser();
+    console.log(user); // Ausgabe des neuen Kundenobjekts
+
+    // Beispiel der displayCustomer-Funktion
+    const displayButton = document.getElementById('displayButton');
+    displayButton.addEventListener('click', function () {
+        displayUser(user);
+    });
+</script>

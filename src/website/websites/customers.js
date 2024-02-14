@@ -14,17 +14,37 @@ function getAllCustomers() {
     return customers;
 }
 
-// Funktion zum Erstellen eines neuen Customers
-function createCustomer(id, firstName, lastName, email, phoneNumber) {
-    const newCustomer = { ...customerTemplate, id, firstName, lastName, email, phoneNumber };
-    customers.push(newCustomer);
-    return newCustomer;
+function saveUser() {
+    //console.log("test");
+    const firstName = document.getElementById('inputVorname').value;
+    const lastName = document.getElementById('inputNachname').value;
+    const email = document.getElementById('inputMail').value;
+    const date = document.getElementById('inputDatum').value;
+    
+    const user = { firstName, lastName, email, date };
+    localStorage.setItem('user', JSON.stringify(user)); // Speichern der Benutzerdaten im localStorage
 }
 
-// Funktion zum Lesen eines Customers anhand der ID
-function readCustomer(id) {
-    return customers.find(customer => customer.id === id);
+// Funktion zum Anzeigen des gespeicherten Benutzers
+function displayUser() {
+    const user = JSON.parse(localStorage.getItem('user')); // Laden der Benutzerdaten aus dem localStorage
+    if (user) {
+        const displayArea = document.getElementById('userDisplay');
+        displayArea.innerHTML = `
+            <p><strong>Vorname:</strong> ${user.firstName}</p>
+            <p><strong>Nachname:</strong> ${user.lastName}</p>
+            <p><strong>E-Mail:</strong> ${user.email}</p>
+            <p><strong>Datum:</strong> ${user.date}</p>
+        `;
+    } else {
+        alert('Kein Benutzer gespeichert!');
+    }
 }
+//document.getElementById('saveButton').addEventListener('click', saveUser);
+
+//document.getElementById('displayButton').addEventListener('click', displayUser);
+
+
 
 // Funktion zum Löschen eines Customers anhand der ID
 function deleteCustomer(id) {
@@ -48,9 +68,9 @@ function validateCustomerNumber(customerNumber) {
 }
 
 // Export der Funktionen
-export { getAllCustomers, createCustomer, readCustomer, deleteCustomer, validateCustomerNumber };
+//{ getAllCustomers, createCustomer, readCustomer, deleteCustomer, validateCustomerNumber };
 
-export async function routes (fastify, options) {
+/*async function routes (fastify, options) {
     fastify.get('/', async (request, reply) => {
       // do something ´
     });
@@ -141,4 +161,4 @@ fastify.addSchema(customerSchema);
 fastify.addSchema(getCustomersResponseSchema);
 
 // Export von Fastify-Instanz
-module.exports = fastify;
+module.exports = fastify;*/
