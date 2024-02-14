@@ -25,6 +25,7 @@ function saveUser() {
     localStorage.setItem('user', JSON.stringify(user)); // Speichern der Benutzerdaten im localStorage
 }
 
+
 // Funktion zum Anzeigen des gespeicherten Benutzers
 function displayUser() {
     const user = JSON.parse(localStorage.getItem('user')); // Laden der Benutzerdaten aus dem localStorage
@@ -67,10 +68,10 @@ function validateCustomerNumber(customerNumber) {
     return isExisting;
 }
 
-// Export der Funktionen
+//Export der Funktionen
 //{ getAllCustomers, createCustomer, readCustomer, deleteCustomer, validateCustomerNumber };
 
-/*async function routes (fastify, options) {
+/*/*async function routes (fastify, options) {
     fastify.get('/', async (request, reply) => {
       // do something ´
     });
