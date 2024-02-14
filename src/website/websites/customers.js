@@ -68,98 +68,32 @@ function validateCustomerNumber(customerNumber) {
     return isExisting;
 }
 
-//Export der Funktionen
-//{ getAllCustomers, createCustomer, readCustomer, deleteCustomer, validateCustomerNumber };
-
-/*async function routes (fastify, options) {
-    fastify.get('/', async (request, reply) => {
-      // do something ´
-    });
-  }
-
-// server.js
-
 const express = require('express');
-const app = express();
-const PORT = 3000; // Port, auf dem der Server laufen soll
+const fs = require('fs');
 
-// Middleware für JSON-Parser
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Middleware zum Verarbeiten von JSON-Daten
 app.use(express.json());
 
-// Importieren der Kunden-Funktionen aus customers.js
-const { getAllCustomers, createCustomer, readCustomer, deleteCustomer, validateCustomerNumber } = require('./customers.js');
 
-// Route: GET /customers - Gibt alle Kunden zurück
-app.get('/customers', (req, res) => {
-    const customers = getAllCustomers();
-    res.json(customers);
-});
-
-// Route: GET /customers/:id - Gibt einen Kunden anhand einer ID zurück
-app.get('/customers/:id', (req, res) => {
-    const { id } = req.params;
-    const customer = readCustomer(id);
-    if (customer) {
-        res.json(customer);
-    } else {
-        res.status(404).send('Customer not found');
-    }
-});
-
-// Route: POST /customers - Erstellt einen neuen Kunden
-app.post('/customers', (req, res) => {
-    const { id, firstName, lastName, email, phoneNumber } = req.body;
-    const newCustomer = createCustomer(id, firstName, lastName, email, phoneNumber);
-    res.status(201).json(newCustomer);
-});
-
-// Route: DELETE /customers/:id - Löscht einen Kunden anhand einer ID
-app.delete('/customers/:id', (req, res) => {
-    const { id } = req.params;
-    const deletedCustomer = deleteCustomer(id);
-    if (deletedCustomer) {
-        res.json(deletedCustomer);
-    } else {
-        res.status(404).send('Customer not found');
-    }
+app.post('/NeuerKunde.html', (req, res) => {
+    const newData = req.body;
+    
+    // Speichern der Daten in einer Datei
+    fs.writeFile('data.json', JSON.stringify(newData), (err) => {
+        if (err) {
+            console.error('Fehler beim Speichern der Daten:', err);
+            res.status(500).send('Interner Serverfehler');
+        } else {
+            console.log('Daten erfolgreich gespeichert:', newData);
+            res.send('Daten erfolgreich gespeichert');
+        }
+    });
 });
 
 // Starten des Servers
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`Server läuft auf Port ${PORT}`);
 });
-
-const fastify = require('fastify')();
-
-// Schema für Kundenobjekte
-const customerSchema = {
-  type: 'object',
-  properties: {
-    name: { type: 'string' },
-    description: { type: 'string', minLength: 1 },
-    id: { type: 'string' },
-  },
-  required: ['name', 'description', 'id']
-};
-
-// Schema für Antwort auf GET /customers
-const getCustomersResponseSchema = {
-  200: {
-    type: 'array',
-    items: {
-      type: 'object',
-      properties: {
-        name: { type: 'string' },
-        description: { type: 'string' },
-        id: { type: 'string' },
-      }
-    }
-  }
-};
-
-// Registrieren der Schemata in Fastify
-fastify.addSchema(customerSchema);
-fastify.addSchema(getCustomersResponseSchema);
-
-// Export von Fastify-Instanz
-module.exports = fastify;*/
