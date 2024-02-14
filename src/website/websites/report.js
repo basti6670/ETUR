@@ -18,6 +18,15 @@ class Report {
         this.closeReason = closeReason;
         this.references = references || [];
     }
+
+    //bei beendigung 
+    markAsFinished(reason) { //Dev
+        if (this.state !== 'finished') {
+            this.state = 'finished';
+            this.closedAt = new Date();
+            this.closeReason = reason;
+        }
+    }
     /*
     newReport() { //Kunde
         this.id = id + 1;
@@ -34,11 +43,8 @@ class Report {
         return this.comments, this.closeReason
     }
     archiveReport() { //Kunde
-*/
-
-
-
-    /*
+    
+    
     markAsFinished() { //Dev
         if (this.state != 'finished');
         this.state = 'finished';
@@ -47,9 +53,8 @@ class Report {
         this.archiveReport();
     } 
     */
-    
 }
-class ReportManager {
+class KundenReport {
     constructor() {
         this.reports = [];
     }
@@ -64,38 +69,5 @@ class ReportManager {
     // Abrufen aller Berichte
     getAllReports() {
         return this.reports;
-    }
-}
-
-class Report {
-    constructor({ id, category, customerId, description, labels, owner, assignedTo, createdAt, editedAt, closedAt, state, priority, comments, closeReason, references }) {
-        this.id = id;
-        this.category = category;
-        this.customerId = customerId;
-        this.description = description;
-        this.labels = labels || [];
-        this.owner = owner;
-        this.assignedTo = assignedTo;
-        this.createdAt = createdAt;
-        this.editedAt = editedAt;
-        this.closedAt = closedAt;
-        this.state = state;
-        this.priority = priority;
-        this.comments = comments || [];
-        this.closeReason = closeReason;
-        this.references = references || [];
-    }
-
-    setDescription(description) {
-        this.description = description;
-    }
-
-    //bei beendigung
-    markAsFinished(reason) {
-        if (this.state !== 'finished') {
-            this.state = 'finished';
-            this.closedAt = new Date();
-            this.closeReason = reason;
-        }
     }
 }
