@@ -1,0 +1,32 @@
+.headline{
+    display: flex;
+    justify-content:center;
+    background-color:dimgrey;
+    border:
+        2px solid black;
+
+    color: aliceblue;
+}
+.login{
+    display: flex;
+    justify-content: center;
+}
+.login{
+    background-color: dimgray;
+    justify-content: center;
+}
+.bodycontainer{
+    padding-top: 10px;
+}
+.logincontainer{
+    padding-left: 40px;
+    padding-right:40px;
+}
+.left-container{
+    float: left;
+    background-color: dimgray;
+}
+.credentials{
+    justify-content: space-evenly;
+    padding-top: 40px;
+}
