@@ -41,11 +41,6 @@ function displayUser() {
         alert('Kein Benutzer gespeichert!');
     }
 }
-//document.getElementById('saveButton').addEventListener('click', saveUser);
-
-//document.getElementById('displayButton').addEventListener('click', displayUser);
-
-
 
 // Funktion zum Löschen eines Customers anhand der ID
 function deleteCustomer(id) {
