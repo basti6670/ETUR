@@ -1,2 +1,3 @@
 Wichtige Info:
-Wenn ihr Fastify installiert, macht das im Hintergrund, sind 2044 Changes, das dauert n bissl xD
+1. Wenn ihr Fastify installiert, macht das im Hintergrund, sind 2044 Changes, das dauert n bissl xD <br>
+2. @Tröger, das t in der customers.js file gibt es nicht, ich habs durch p ersetzt, da p für text steht, nicht t :)
