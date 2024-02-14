@@ -71,7 +71,7 @@ function validateCustomerNumber(customerNumber) {
 //Export der Funktionen
 //{ getAllCustomers, createCustomer, readCustomer, deleteCustomer, validateCustomerNumber };
 
-/*/*async function routes (fastify, options) {
+/*async function routes (fastify, options) {
     fastify.get('/', async (request, reply) => {
       // do something ´
     });
