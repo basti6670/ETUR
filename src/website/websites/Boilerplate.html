@@ -32,6 +32,7 @@
     </div>
 </body>
 <script>
+    // Importiere die Report-Klasse
     const Report = require('./report.js');
 
     // Ein neues Report-Objekt erstellen
@@ -68,15 +69,8 @@
 
     // Beispiel für die Verwendung von Methoden
     myReport.setDescription('Updated description');
-    myReport.addComment({
-        author: 'Another Author',
-        message: 'Another comment',
-        createdAt: '2020-01-01:12:00:00',
-        type: 'product manager'
-    });
 
     console.log(myReport.getDescription());
-    console.log(myReport.getComments());
 </script>
 
 </html>

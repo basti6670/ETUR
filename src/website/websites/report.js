@@ -23,12 +23,6 @@ class Report {
     }
 
     // Weitere Methoden zum Setzen und Abrufen von Eigenschaften ...
-
-    // Exportieren der Klasse
-    module
-
 }
 
-markAsFinished(){
-    
-}
+markAsFinished()
