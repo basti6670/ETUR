@@ -1,48 +1,68 @@
-.headline{
+.headline {
     display: flex;
-    justify-content:center;
-    background-color:dimgrey;
-    border:
-        2px solid black;
-
+    justify-content: center;
+    background-color: dimgrey;
+    border: 2px solid black;
     color: aliceblue;
 }
-.login{
-    justify-content: center;
-    background-color: dimgray;
 
-}
-.login{
-    /*background-color: dimgray; */
+.login {
+    background-color: dimgray;
     justify-content: center;
     display: flex;
+    padding: 20px 0; /* Hinzugefügt für vertikalen Abstand */
 }
-.bodycontainer{
 
+.bodycontainer {
+    display: flex;
     justify-content: center;
 }
-.logincontainer{
+
+.logincontainer {
     justify-content: center;
     display: flex;
     background-color: dimgray;
 }
-.left-container{
+
+.left-container {
     width: 50%;
     text-align: right;
     float: left;
 }
-.right-container{
+
+.right-container {
     text-align: left;
     width: 50%;
     float: right;
 }
-.credentials{
-    justify-content: space-evenly;
 
+.credentials {
+    justify-content: space-evenly;
 }
-body{
+
+body {
     background-color: lightgray;
 }
-header{
+
+header {
     padding-bottom: 10px;
 }
+
+.buttoncontainer {
+    display: flex;
+    justify-content: center;
+    background-color: dimgray;
+}
+
+.Reportcontainer {
+    /* float: right; */ /* Entfernt */
+    display: flex;
+    justify-content: center;
+    background-color: lightblue;
+    padding-right: 20px;
+    width: 600px;
+}
+
+/* .Contents {  Entfernt */ 
+/*    clear: both; */
+/* } */
